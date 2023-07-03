@@ -8,7 +8,6 @@ export default function paginationField() {
 
       // read the number of item in the page from the cache
       const data = cache.readQuery({ query: PAGINATION_QUERY });
-      console.log(data);
       const count = data?._allProductsMeta?.count;
       const page = skip / first + 1;
       const pages = Math.ceil(count / first);
@@ -23,9 +22,6 @@ export default function paginationField() {
         return false;
       }
       if (items.length) {
-        console.log(
-          `There are ${items.length} items in the cache! Gonna send them to apollo `
-        );
         return items; // fallback to network
       }
 
